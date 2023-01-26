@@ -1,0 +1,178 @@
+/* --- Thème --- */
+:root {
+    /* Plateau */
+    --background: #161d30;
+    --text: #fff;
+
+    /* Panneau victoire */
+    --win-background: #fa2d0c;
+    --win-text: #161d30;
+    
+    /* Boutons */
+    --btn-background: #161d30;
+    --btn-borders: #fff;
+    --btn-border-radius: 5px;
+    --btn-hover-borders: #fa2d0c;
+    --btn-active-background: #fff;
+    --btn-active-text: #161d30;
+    --btn-text: #fff;
+    
+    /* Cartes */
+    --card-back-url: url( './assets/back.jpg' );
+    --card-borders: #fff;
+    --card-border-radius: 5px;
+}
+
+
+/* --- Général --- */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+h1 {
+    padding: 15px;
+}
+
+h3 {
+    padding-bottom: 15px;
+}
+
+body {
+    background-color: var( --background );
+    color: var( --text );
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-size: 18px;
+    min-height: 100vh;
+}    
+
+    body > div {
+        align-items: flex-start;
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        position: relative;
+    }    
+
+
+/* --- Composants --- */
+/* -- Eléments cachés -- */
+.hidden {
+    display: none !important;
+}
+
+
+/* -- Boutons -- */
+.btn {
+    background-color: var(--btn-background);
+    border: 2px solid var(--btn-borders);
+    border-radius: var( --btn-border-radius );
+    color: var( --btn-text );
+    cursor: pointer;
+    padding: 5px 3px;
+    vertical-align: middle;
+}
+
+    /* Survol / Cliqué */
+    .btn:hover,
+    .btn:active {
+        border-color: var( --btn-hover-borders );
+    }
+
+    /* Cliqué */
+    .btn:active {
+        background-color: var( --btn-active-background );
+        color: var( --btn-active-text );
+    }
+
+
+/* -- Panneau victoire -- */
+#win {
+    align-items: center;
+    background-color: var( --win-background );
+    color: var( --win-text );
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 20;
+}
+
+    /* Titre */
+    #win .title {
+        font-size: 128px;
+    }
+
+
+/* -- Grille de cartes -- */
+#deck {
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 800px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
+}
+
+/* -- Cartes -- */
+.card {
+    flex: 0 0 160px;
+    padding: 5px;
+    position: relative;
+}
+
+    /* Éléments internes */
+    .card > div {
+        background-size: cover;
+        border: 2px solid var( --card-borders );
+        border-radius: var( --card-border-radius );
+        cursor: grab;
+        display: block;
+        height: 150px;
+        transition: transform .3s, z-index .3s;
+    }
+
+/* - Dos de carte - */
+.card-back {
+    background: var(--card-back-url);
+    position: relative;
+    z-index: 2;
+    transform: rotateY(0);
+}
+
+    /* Cliqué */
+    .card-back:active {
+        cursor: grabbing;
+    }
+
+    /* Retourné */
+    .flipped .card-back {
+        transform: rotateY(.5turn);
+        z-index: 1;
+    }
+
+/* - Face de carte - */
+.card-img {
+    top: 5px;
+    position: absolute;
+    transform: rotateY(.5turn);
+    width: calc( 100% - 10px );
+    z-index: 1;
+}
+
+    /* Retournée */
+    .flipped .card-img {
+        transform: rotateY(0);
+        z-index: 2;
+    }

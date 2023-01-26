@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'IDEM Memory</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>L'IDEM Memory</h1>
+    <h2>Score: <span id="score"></span> coups</h2>
+    <h3>Record: <span id="highscore"></span> <button type="button" class="btn" id="btn-clear" title="Effacer le record">🗑️</button></h3>
+
+    <div>
+        <!-- Panneau victoire -->
+        <div id="win" class="hidden">
+            <div>
+                <div class="title">GAGNÉ !</div>
+                <div class="win-score">Ton score: <span id="final-score"></span> coups</div>
+                <div>
+                    <button type="button" class="btn" id="btn-again">Rejouer !</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table de jeu -->
+        <div id="deck"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
