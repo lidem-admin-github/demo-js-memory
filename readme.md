@@ -3,6 +3,8 @@
 
 Jeu de Memory (paires de cartes) en **HTML**, **CSS**, et **Javascript**.
 
+Tester le jeu : https://lidem-admin-github.github.io/demo-js-memory/
+
 ## Déroulement du jeu
 
 Le but du jeu est de retrouver toutes les paires de cartes indentiques en utilisant le moins de tentatives possible.<br>
